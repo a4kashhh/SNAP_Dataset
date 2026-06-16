@@ -1,0 +1,50 @@
+======================================================================
+         BARABÁSI-ALBERT MODEL SIMILARITY: DATASETS >= 85%
+======================================================================
+
+The following datasets from both scanned folders scored 85% or higher 
+for Barabási–Albert preferential attachment similarity:
+
+----------------------------------------------------------------------
+1. EXCEEDS 85% (STRICTLY ABOVE 85%):
+----------------------------------------------------------------------
+* web-BerkStan.txt.gz - 95% (Strong BA Fit)
+
+----------------------------------------------------------------------
+2. EXACTLY 85% (STRONG BA FIT):
+----------------------------------------------------------------------
+* as-caida20071105 (1).txt.gz - 85%
+* as-caida20071105.txt.gz - 85%
+* as-skitter.txt.gz - 85%
+* as20000102.txt.gz - 85%
+* higgs-social_network.edgelist.gz - 85%
+* loc-brightkite_edges.txt.gz - 85%
+* loc-gowalla_edges.txt.gz - 85%
+* oregon1_010331.txt.gz - 85%
+* soc-sign-Slashdot0811.txt.gz - 85%
+* soc-sign-Slashdot081106.txt.gz - 85%
+* soc-sign-Slashdot090216.txt.gz - 85%
+* soc-sign-bitcoinalpha (1).csv.gz - 85%
+* soc-sign-bitcoinalpha.csv.gz - 85%
+* soc-sign-bitcoinotc (1).csv.gz - 85%
+* soc-sign-bitcoinotc.csv.gz - 85%
+* sx-askubuntu.txt.gz - 85%
+* sx-superuser.txt.gz - 85%
+* twitch.zip - 85%
+* twitch_gamers.zip - 85%
+* twitter.tar.gz (Merged) - 85%
+* wiki-talk-temporal.txt.gz - 85%
+* wikipedia.zip [musae_crocodile_edges.csv] - 85%
+
+----------------------------------------------------------------------
+Note: If filtering strictly for true Barabási-Albert physical properties
+(requiring near-zero clustering and neutral degree assortativity):
+----------------------------------------------------------------------
+The best fits are:
+* web-BerkStan.txt.gz
+* as-skitter.txt.gz
+* higgs-social_network.edgelist.gz
+* soc-sign-Slashdot081106.txt.gz
+* wiki-talk-temporal.txt.gz
+* sx-superuser.txt.gz
+* loc-gowalla_edges.txt.gz
