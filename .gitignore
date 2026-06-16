@@ -1,0 +1,5 @@
+# macOS system files
+.DS_Store
+
+# Ignore specific files that exceed GitHub's 100MB file size limit
+*CiscoSecureWorkload_22_networks.zip
