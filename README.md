@@ -1,6 +1,6 @@
-# Stanford Large Network Dataset Collection: Barabasi-Albert Similarity Analysis
+# Stanford SNAP Datasets with >= 85% Barabási-Albert Similarity
 
-This repository houses and documents datasets from the Stanford Large Network Dataset Collection (SNAP) that exhibit high structural similarity ($\ge 85\%$) to the Barabási-Albert (BA) scale-free network model. The analysis evaluates empirical graphs across multiple structural dimensions, comparing their topological features against analytical derivations of preferential attachment networks.
+This repository is a curated collection of networks from the Stanford Large Network Dataset Collection (SNAP) that have been empirically verified to score 85% or higher in similarity to the Barabási-Albert (BA) preferential attachment model. All raw network datasets included in this repository have been filtered from the wider SNAP collection based on their strict scale-free properties and adherence to theoretical preferential attachment topologies.
 
 ---
 
@@ -30,7 +30,7 @@ The average shortest path length (mean geodesic distance) $\ell$ scales as:
 
 $$\ell \sim \frac{\ln N}{\ln(\ln N)}$$
 
-This represents a ultra-small-world property, showing a slower growth rate with respect to $N$ compared to Erdos-Renyi random graphs, where $\ell \sim \ln N$.
+This represents an ultra-small-world property, showing a slower growth rate with respect to $N$ compared to Erdos-Renyi random graphs, where $\ell \sim \ln N$.
 
 ### 5. Clustering Coefficient
 The average clustering coefficient $C$ of a Barabási-Albert network decays with the number of nodes $N$ according to:
@@ -48,26 +48,24 @@ For pure BA networks, the assortativity converges to a neutral state:
 
 $$\lim_{N \to \infty} r = 0$$
 
-Real-world social networks are typically assortative ($r > 0$), while technological and biological networks are often disassortative ($r < 0$).
-
 ---
 
-## Similarity Analysis Pipeline
+## Filtering and Selection Criteria
 
-To evaluate the similarity of SNAP datasets to the Barabási-Albert model, a multi-metric scoring function was implemented:
+To select the networks in this repository from the wider Stanford SNAP collection, a multi-metric similarity scoring function $S$ was applied to each graph:
 
-1. **Power-Law Fitting:** Empirical degree distributions were fitted using maximum likelihood estimation (MLE) to compute the empirical scaling exponent $\hat{\gamma}$. The deviation from the theoretical value ($\gamma = 3$) is normalized as:
+1. **Power-Law Exponent Estimation:** We estimate the empirical degree exponent $\hat{\gamma}$ using maximum likelihood estimation (MLE). The relative deviation from the theoretical value ($\gamma = 3$) is:
    $$\delta_{\gamma} = \frac{|\hat{\gamma} - 3.0|}{3.0}$$
-2. **Clustering & Assortativity Penalization:** Real-world networks often feature strong community structures (high clustering $C$) and degree-based homophily (assortativity $r$), which are absent in pure BA models. The similarity score $S$ is computed as:
+2. **Structural Deviations:** Real-world networks display higher clustering ($C$) and degree assortativity ($r$) due to community structures and homophily. These structural deviations from a pure BA model penalize the score:
    $$S = \max\left(0, 100 \times \left(1 - \left(0.5 \delta_{\gamma} + 0.3 |r| + 0.2 C\right)\right)\right)$$
 
+Only datasets scoring $S \ge 85\%$ are retained in this repository.
+
 ---
 
-## Dataset Classification Registry
+## Retained Datasets ($\ge 85\%$ Similarity)
 
-Real-world graphs scoring $\ge 85\%$ similarity to the theoretical BA model are categorized below.
-
-For the raw analysis list, see [datasets_above_85.txt](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/datasets_above_85.txt).
+Below is the registry of SNAP datasets matching our selection criteria. The raw results index is available in [datasets_above_85.txt](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/datasets_above_85.txt).
 
 ### Strict Barabasi-Albert Fit (Score > 85%)
 
@@ -96,15 +94,15 @@ For the raw analysis list, see [datasets_above_85.txt](file:///Users/sumanpandey
 
 ---
 
-## Repository Structure
+## Directory Structure
 
-The dataset files are organized by topology categories:
+The files are grouped by topology categories:
 
 *   [Autonomous systems graphs](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Autonomous%20systems%20graphs): Router-level peering topologies.
 *   [Web graphs](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Web%20graphs): Hyperlink connectivity maps.
 *   [Social Networks](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Social%20Networks): Follower and friendship graphs.
 *   [Location-based online social networks](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Location-based%20online%20social%20networks): Spatial social graphs.
-*   [Wikipedia networks, articles, and metadata](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Wikipedia%20networks,%20articles,%20and%20metadata): Page links and interaction logs.
+*   [Wikipedia networks, articles, and metadata](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Wikipedia%20networks,%20articles,%20and%20metadata): Page links and article networks.
 *   [Signed networks](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Signed%20networks): Trust and distrust networks.
 *   [Communication networks](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Communication%20networks): E-mail and temporal talk pages.
 *   [Temporal networks](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Temporal%20networks): Graphs with time-stamped edges.
@@ -113,9 +111,9 @@ The dataset files are organized by topology categories:
 
 ---
 
-## Replication and Analysis Implementation
+## Analysis Implementation
 
-The pipeline can be executed using Python, NetworkX, and the powerlaw package:
+The filtering pipeline can be replicated using Python, NetworkX, and the powerlaw package:
 
 ```python
 import networkx as nx
