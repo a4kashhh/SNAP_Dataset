@@ -1,6 +1,6 @@
 # Stanford SNAP Datasets with >= 85% Barabási-Albert Similarity
 
-This repository is a curated collection of networks from the Stanford Large Network Dataset Collection (SNAP) that have been empirically verified to score 85% or higher in similarity to the Barabási-Albert (BA) preferential attachment model. All raw network datasets included in this repository have been filtered from the wider SNAP collection based on their strict scale-free properties and adherence to theoretical preferential attachment topologies.
+This repository is a curated collection of networks from the Stanford Large Network Dataset Collection (SNAP) that have been empirically verified to score 85% or more in similarity to the Barabási-Albert (BA) preferential attachment model. All raw network datasets included in this repository have been filtered from the wider SNAP collection based on their strict scale-free properties and adherence to theoretical preferential attachment topologies.
 
 ---
 
