@@ -96,7 +96,7 @@ Below is the registry of SNAP datasets matching our selection criteria. The raw 
 
 ## Directory Structure
 
-The files are grouped by topology categories:
+The files are grouped by topology categories
 
 *   [Autonomous systems graphs](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Autonomous%20systems%20graphs): Router-level peering topologies.
 *   [Web graphs](file:///Users/sumanpandey/Desktop/Dataset%20w%2085%3E/Web%20graphs): Hyperlink connectivity maps.
