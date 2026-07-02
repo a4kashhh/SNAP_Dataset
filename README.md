@@ -154,7 +154,7 @@ def evaluate_ba_similarity(file_path):
 
 ---
 
-## References
+## Reference
 
 1. Leskovec, J., & Krevl, A. (2014). SNAP Datasets: Stanford Large Network Dataset Collection. http://snap.stanford.edu/data.
 2. Barabási, A. L., & Albert, R. (1999). Emergence of scaling in random networks. Science, 286(5439), 509-512.
